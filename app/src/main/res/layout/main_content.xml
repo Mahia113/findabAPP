@@ -9,4 +9,10 @@
         android:layout_height="wrap_content"
         android:text="Jose"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:paddingTop="20dp"
+        android:id="@+id/recyclerview_editoriales"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </LinearLayout>
