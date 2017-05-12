@@ -5,10 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.findab.R;
 
-import com.android.findab.modelo.categoria;
+import com.android.findab.modelo.Categoria;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -16,45 +19,45 @@ import java.util.List;
  * Created by josel on 11/05/2017.
  */
 
-public class categoriaAdaptador extends RecyclerView.Adapter<categoriaAdaptador.categoriaViewholder>
+public class categoriaAdaptador extends RecyclerView.Adapter<categoriaAdaptador.categoriaViewHolder>
 {
-    private List<categoria> categoria;
+    private List<Categoria> categorias;
 
-    public categoriaAdaptador(List<categoria> editoriales)
+    public categoriaAdaptador(List<Categoria> categorias)
     {
-        this.categoria = categoria;
+        this.categorias = categorias;
     }
 
     @Override
-    public categoriaViewholder onCreateViewHolder(ViewGroup parent, int viewType)
+    public categoriaViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_editorial, parent, false);
-
-        return new categoriaViewholder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_categoria, parent, false);
+        return new categoriaViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(EditorialViewholder holder, int position)
+    public void onBindViewHolder(categoriaViewHolder categoriaViewHolder, int position)
     {
-        Editorial editorial = editoriales.get(position);
-
-        holder.imagenEditorial.setImageResource(editorial.getFotoEditorial());
+        Categoria categoria = categorias.get(position);
+        categoriaViewHolder.imagenCategoria.setImageResource(categoria.getIconCategoria());
+        categoriaViewHolder.nombreCategoria.setText(categoria.getNombreCategoria());
     }
 
     @Override
     public int getItemCount() {
-        return editoriales.size();
+        return categorias.size();
     }
 
-    public static class EditorialViewholder extends RecyclerView.ViewHolder
+    public static class categoriaViewHolder extends RecyclerView.ViewHolder
     {
-        private ImageView imagenEditorial;
+        private ImageView imagenCategoria;
+        private TextView nombreCategoria;
 
-        public EditorialViewholder(View itemView)
-        {
+        public categoriaViewHolder(View itemView) {
             super(itemView);
-            imagenEditorial = (ImageView)itemView.findViewById(R.id.imagen_editorial);
+
+            imagenCategoria = (ImageView) itemView.findViewById(R.id.imagen_categoria);
+            nombreCategoria = (TextView) itemView.findViewById(R.id.nombre_categoria);
         }
     }
 }
-

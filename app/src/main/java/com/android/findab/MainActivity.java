@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.android.findab.adaptador.categoriaAdaptador;
-import com.android.findab.modelo.categoria;
+import com.android.findab.modelo.Categoria;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity
 {
 
     private RecyclerView recyclerCategorias;
-    private List<categoria> listaEditoriales;
+    private List<Categoria> listaCategorias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,33 +39,31 @@ public class MainActivity extends AppCompatActivity
         ctlLayout.setTitle("Mi Aplicaciónnn");
 
 
-        recyclerCategorias = (RecyclerView) findViewById(R.id.recyclerview_editoriales);
+        recyclerCategorias = (RecyclerView) findViewById(R.id.recyclerview_categorias);
 
         //LinearLayoutManager lm = new LinearLayoutManager(this);
         //lm.setOrientation(LinearLayoutManager.VERTICAL);
 
         GridLayoutManager glm = new GridLayoutManager(this,2);
-
-
         recyclerCategorias.setLayoutManager(glm);
+
+        inicializarDatos();
+        inicializaAdaptador();
     }
 
     public void inicializarDatos()
     {
-        listaEditoriales = new ArrayList<>();
+        listaCategorias = new ArrayList<>();
 
-        listaEditoriales.add(new categoria(R.drawable.ciudad));
-        listaEditoriales.add(new categoria(R.drawable.medio_dia));
-        listaEditoriales.add(new categoria(R.drawable.tarde));
-        listaEditoriales.add(new categoria(R.drawable.tarde_lago));
-        listaEditoriales.add(new categoria(R.drawable.ciudad));
-        listaEditoriales.add(new categoria(R.drawable.medio_dia));
+        listaCategorias.add(new Categoria(R.drawable.icon_bar, "Restaurantes"));
+        listaCategorias.add(new Categoria(R.drawable.icon_restaurant,"Bares"));
+        listaCategorias.add(new Categoria(R.drawable.icon_cafeteria,"Cafeterias"));
     }
 
     public categoriaAdaptador adaptador;
     private void inicializaAdaptador()
     {
-        adaptador = new categoriaAdaptador(listaEditoriales);
+        adaptador = new categoriaAdaptador(listaCategorias);
         recyclerCategorias.setAdapter(adaptador);
     }
 }

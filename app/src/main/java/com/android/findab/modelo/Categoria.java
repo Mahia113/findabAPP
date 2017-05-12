@@ -4,12 +4,12 @@ package com.android.findab.modelo;
  * Created by joseluis on 10/05/2017.
  */
 
-public class categoria
+public class Categoria
 {
     private int iconCategoria;
-    private int nombreCategoria;
+    private String nombreCategoria;
 
-    public categoria()
+    public Categoria(int iconCategoria, String nombreCategoria)
     {
         this.iconCategoria = iconCategoria;
         this.nombreCategoria = nombreCategoria;
@@ -20,17 +20,17 @@ public class categoria
         return iconCategoria;
     }
 
-    public void setIconCategoria()
+    public void setIconCategoria(int iconCategoria)
     {
         this.iconCategoria = iconCategoria;
     }
 
-    public int getNombreCategoria()
+    public String getNombreCategoria()
     {
         return nombreCategoria;
     }
 
-    public void setNombreCategoria()
+    public void setNombreCategoria(String nombreCategoria)
     {
         this.nombreCategoria = nombreCategoria;
     }
