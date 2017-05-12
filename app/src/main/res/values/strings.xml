@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Findab</string>
+
+    <string name="ajustes">Ajustes</string>
+    <string name="buscar">Buscar</string>
+
 </resources>

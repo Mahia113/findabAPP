@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 
 import com.android.findab.adaptador.categoriaAdaptador;
 import com.android.findab.modelo.Categoria;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity
 
         ActionBar bar = getSupportActionBar();
 
-        //bar.setDisplayShowTitleEnabled(false);
+        bar.setDisplayShowTitleEnabled(true);
 
         //bar.setTitle("Mi Aplicaci");
 
@@ -55,12 +56,19 @@ public class MainActivity extends AppCompatActivity
     {
         listaCategorias = new ArrayList<>();
 
-        listaCategorias.add(new Categoria(R.drawable.icon_bar, "Restaurantes"));
-        listaCategorias.add(new Categoria(R.drawable.icon_restaurant,"Bares"));
+        listaCategorias.add(new Categoria(R.drawable.icon_restaurant, "Restaurantes"));
+        listaCategorias.add(new Categoria(R.drawable.icon_bar,"Bares"));
         listaCategorias.add(new Categoria(R.drawable.icon_cafeteria,"Cafeterias"));
         listaCategorias.add(new Categoria(R.drawable.icon_hospital,"Farmacias"));
         listaCategorias.add(new Categoria(R.drawable.icon_turisticos,"Turisticos"));
         listaCategorias.add(new Categoria(R.drawable.icon_favorito,"Favoritos"));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_categorias, menu);
+        return true;
     }
 
     public categoriaAdaptador adaptador;
