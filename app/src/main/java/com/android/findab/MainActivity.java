@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity
         listaCategorias.add(new Categoria(R.drawable.icon_bar, "Restaurantes"));
         listaCategorias.add(new Categoria(R.drawable.icon_restaurant,"Bares"));
         listaCategorias.add(new Categoria(R.drawable.icon_cafeteria,"Cafeterias"));
+        listaCategorias.add(new Categoria(R.drawable.icon_hospital,"Farmacias"));
+        listaCategorias.add(new Categoria(R.drawable.icon_turisticos,"Turisticos"));
+        listaCategorias.add(new Categoria(R.drawable.icon_favorito,"Favoritos"));
     }
 
     public categoriaAdaptador adaptador;
