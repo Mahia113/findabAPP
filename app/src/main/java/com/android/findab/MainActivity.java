@@ -1,13 +1,20 @@
 package com.android.findab;
 
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.findab.adaptador.categoriaAdaptador;
 import com.android.findab.modelo.Categoria;
@@ -21,13 +28,25 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView recyclerCategorias;
     private List<Categoria> listaCategorias;
 
+    private Toolbar toolbar;
+
+    /**
+     * Instancia del drawer
+     */
+    private DrawerLayout drawerLayout;
+
+    /**
+     * Titulo inicial del drawer
+     */
+    private String drawerTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar bar = getSupportActionBar();
@@ -39,7 +58,6 @@ public class MainActivity extends AppCompatActivity
         CollapsingToolbarLayout ctlLayout = (CollapsingToolbarLayout)findViewById(R.id.mycoll);
         ctlLayout.setTitle("Mi Aplicaciónnn");
 
-
         recyclerCategorias = (RecyclerView) findViewById(R.id.recyclerview_categorias);
 
         //LinearLayoutManager lm = new LinearLayoutManager(this);
@@ -47,6 +65,8 @@ public class MainActivity extends AppCompatActivity
 
         GridLayoutManager glm = new GridLayoutManager(this,2);
         recyclerCategorias.setLayoutManager(glm);
+
+        initNavigationDrawer();
 
         inicializarDatos();
         inicializaAdaptador();
@@ -76,5 +96,54 @@ public class MainActivity extends AppCompatActivity
     {
         adaptador = new categoriaAdaptador(listaCategorias);
         recyclerCategorias.setAdapter(adaptador);
+    }
+
+    public void initNavigationDrawer() {
+
+        NavigationView navigationView = (NavigationView)findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+                int id = menuItem.getItemId();
+
+                switch (id){
+                    case R.id.home:
+                        Toast.makeText(getApplicationContext(),"Home",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.settings:
+                        Toast.makeText(getApplicationContext(),"Settings",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.trash:
+                        Toast.makeText(getApplicationContext(),"Trash",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.logout:
+                        finish();
+
+                }
+                return true;
+            }
+        });
+        View header = navigationView.getHeaderView(0);
+        TextView tv_email = (TextView)header.findViewById(R.id.tv_email);
+        tv_email.setText("raj.amalw@learn2crack.com");
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close){
+
+            @Override
+            public void onDrawerClosed(View v){
+                super.onDrawerClosed(v);
+            }
+
+            @Override
+            public void onDrawerOpened(View v) {
+                super.onDrawerOpened(v);
+            }
+        };
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
     }
 }
