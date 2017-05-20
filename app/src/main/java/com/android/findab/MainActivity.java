@@ -51,12 +51,11 @@ public class MainActivity extends AppCompatActivity
 
         ActionBar bar = getSupportActionBar();
 
-        bar.setDisplayShowTitleEnabled(true);
-
-        //bar.setTitle("Mi Aplicaci");
+        bar.setDisplayShowTitleEnabled(false);
+       // bar.setTitle("Categorias");
 
         CollapsingToolbarLayout ctlLayout = (CollapsingToolbarLayout)findViewById(R.id.mycoll);
-        ctlLayout.setTitle("Mi Aplicaciónnn");
+        //ctlLayout.setTitle("Mi Aplicaciónnn");
 
         recyclerCategorias = (RecyclerView) findViewById(R.id.recyclerview_categorias);
 
@@ -98,7 +97,8 @@ public class MainActivity extends AppCompatActivity
         recyclerCategorias.setAdapter(adaptador);
     }
 
-    public void initNavigationDrawer() {
+    public void initNavigationDrawer()
+    {
 
         NavigationView navigationView = (NavigationView)findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -107,13 +107,15 @@ public class MainActivity extends AppCompatActivity
 
                 int id = menuItem.getItemId();
 
-                switch (id){
+                switch (id)
+                {
                     case R.id.home:
                         Toast.makeText(getApplicationContext(),"Home",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.settings:
                         Toast.makeText(getApplicationContext(),"Settings",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
                         break;
                     case R.id.trash:
                         Toast.makeText(getApplicationContext(),"Trash",Toast.LENGTH_SHORT).show();
@@ -121,17 +123,17 @@ public class MainActivity extends AppCompatActivity
                         break;
                     case R.id.logout:
                         finish();
-
                 }
                 return true;
             }
         });
         View header = navigationView.getHeaderView(0);
-        TextView tv_email = (TextView)header.findViewById(R.id.tv_email);
-        tv_email.setText("raj.amalw@learn2crack.com");
+      //  TextView tv_email = (TextView)header.findViewById(R.id.tv_email);
+      //  tv_email.setText("raj.amalw@learn2crack.com");
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close){
+        ActionBarDrawerToggle actionBarDrawerToggle =
+                new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close){
 
             @Override
             public void onDrawerClosed(View v){

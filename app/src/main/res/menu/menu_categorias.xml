@@ -15,13 +15,4 @@
         app:showAsAction="always"
         />
 
-    <item
-        android:id="@+id/accion_slide"
-        android:title="@string/buscar"
-        android:icon="@mipmap/icon_menu"
-        android:orderInCategory="100"
-        app:showAsAction="always"
-        />
-
-
 </menu>
