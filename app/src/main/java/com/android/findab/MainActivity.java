@@ -1,5 +1,6 @@
 package com.android.findab;
 
+import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -91,9 +93,51 @@ public class MainActivity extends AppCompatActivity
     }
 
     public categoriaAdaptador adaptador;
+
     private void inicializaAdaptador()
     {
         adaptador = new categoriaAdaptador(listaCategorias);
+
+        adaptador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                int var = recyclerCategorias.getChildPosition(v);
+
+                switch (var)
+                {
+                    case 0:
+                        Toast.makeText(getApplicationContext(),"Estas dentro de la categoria Restaurantes",
+                                Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(),ListaNegocios.class);
+                        intent.putExtra("parametro", "Restaurantes");
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        Toast.makeText(getApplicationContext(),"Estas dentro de la categoria Bares",
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(getApplicationContext(),"Estas dentro de la categoria Cafeterias",
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                    case 3:
+                        Toast.makeText(getApplicationContext(),"Estas dentro de la categoria Farmacias",
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                    case 4:
+                        Toast.makeText(getApplicationContext(),"Estas dentro de la categoria Turisticos",
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                    case 5:
+                        Toast.makeText(getApplicationContext(),"Estas dentro de la categoria Favoritos",
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                }
+
+                // Log.i("DemoRecView", "Pulsado el elemento " + recView.getChildPosition(v));
+            }
+        });
         recyclerCategorias.setAdapter(adaptador);
     }
 

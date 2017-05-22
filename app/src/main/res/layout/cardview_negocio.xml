@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/cardview_categoria"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    app:cardCornerRadius="@dimen/cardview_corner_radius"
+    app:cardMaxElevation="4dp"
+    app:cardElevation="2dp"
+    android:clipToPadding="false"
+
+    android:layout_marginRight="6dp"
+    android:layout_marginLeft="4dp"
+    android:layout_marginBottom="15dp"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/contenedorCardviewNegocios"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/imagen_negocio"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/material_background2"
+            android:contentDescription="Imagen panoramica del negocios">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/nombre_negocio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Ejemplo del titulo"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/text_tiempo_fisicamente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/nombre_negocio"
+            android:text="Fisicamente: "
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/tiempo_fisicamente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/text_tiempo_fisicamente"
+            android:layout_toEndOf="@id/text_tiempo_fisicamente"
+            android:layout_below="@+id/nombre_negocio"
+            android:text="20"
+            android:textColor="@android:color/white" />
+
+
+        <TextView
+            android:id="@+id/text_tiempo_domicilio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_negocio"
+            android:layout_toEndOf="@id/tiempo_fisicamente"
+            android:layout_toRightOf="@id/tiempo_fisicamente"
+            android:text="Domicilio: "
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/tiempo_domicilio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_negocio"
+            android:layout_toEndOf="@id/text_tiempo_domicilio"
+            android:layout_toRightOf="@id/text_tiempo_domicilio"
+            android:text="30"
+            android:textColor="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/icon_calificacion_negocios"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/icon_busqueda"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/lista_negocios_calificacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/icon_calificacion_negocios"
+            android:layout_toRightOf="@id/icon_calificacion_negocios"
+            android:text="5"
+            android:textColor="@android:color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        <ImageView
+            android:id="@+id/icon_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_busqueda"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+

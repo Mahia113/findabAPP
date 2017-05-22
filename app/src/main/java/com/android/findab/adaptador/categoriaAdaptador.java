@@ -20,8 +20,11 @@ import java.util.List;
  */
 
 public class categoriaAdaptador extends RecyclerView.Adapter<categoriaAdaptador.categoriaViewHolder>
+    implements View.OnClickListener
 {
     private List<Categoria> categorias;
+
+    private View.OnClickListener listener;
 
     public categoriaAdaptador(List<Categoria> categorias)
     {
@@ -32,7 +35,20 @@ public class categoriaAdaptador extends RecyclerView.Adapter<categoriaAdaptador.
     public categoriaViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_categoria, parent, false);
+
+        v.setOnClickListener(this);
+
         return new categoriaViewHolder(v);
+    }
+
+    public void setOnClickListener(View.OnClickListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(listener != null)
+            listener.onClick(view);
     }
 
     @Override
