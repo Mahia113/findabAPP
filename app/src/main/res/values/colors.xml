@@ -7,5 +7,6 @@
     <color name="colorPrimaryDark">#2F3E9E</color>
     <color name="colorAccent">#5F7C8A</color>
 
+    <color name="colorBlackTrans">#3d000000</color>
 
 </resources>
