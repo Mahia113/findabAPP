@@ -10,7 +10,7 @@
 
     <!-- Contenido Principal -->
     <android.support.v7.widget.RecyclerView
-        android:paddingTop="20dp"
+        android:paddingTop="10dp"
         android:id="@+id/recyclerview_negocios"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

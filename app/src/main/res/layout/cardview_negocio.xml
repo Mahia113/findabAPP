@@ -8,10 +8,8 @@
     app:cardElevation="2dp"
     android:clipToPadding="false"
 
-    android:layout_marginRight="6dp"
-    android:layout_marginLeft="4dp"
     android:layout_marginBottom="15dp"
-    
+
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
