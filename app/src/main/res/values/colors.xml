@@ -8,5 +8,6 @@
     <color name="colorAccent">#5F7C8A</color>
 
     <color name="colorBlackTrans">#3d000000</color>
+    <color name="colorWhite">#FFFFFF</color>
 
 </resources>
